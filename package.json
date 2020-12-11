@@ -1,0 +1,11 @@
+
+  {
+    "name": "lintr",
+    "version": "1.0.0",
+    "scripts": {
+      "setup": "npm run setup:client && npm run setup:server",
+      "setup:client": "cd lintr.client && npm i",
+      "setup:server": "cd lintr.server && npm i"
+    }
+  }
+  
