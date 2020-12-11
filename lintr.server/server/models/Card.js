@@ -1,20 +1,20 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-const Value = new Schema(
+const Card = new Schema(
   {
-    title: { type: String, required: true },
-    description: { type: String, required: true },
+    codeSnippet: { type: String, required: true },
+    isCorrect: { type: Boolean, required: true },
     creatorId: { type: String, ref: 'Profile', required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
 
-Value.virtual('creator', {
+Card.virtual('creator', {
   localField: 'creatorId',
   ref: 'Profile',
   foreignField: '_id',
   justOne: true
 })
 
-export default Value
+export default Card

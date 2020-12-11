@@ -1,19 +1,18 @@
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 
-export class ValuesController extends BaseController {
+export class CardsController extends BaseController {
   constructor() {
-    super('api/values')
+    super('api/Cards')
     this.router
-      .get('', this.getAll)
-      // NOTE: Beyond this point all routes require Authorization tokens (the user must be logged in)
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get('', this.getAll)
       .post('', this.create)
   }
 
   async getAll(req, res, next) {
     try {
-      return res.send(['value1', 'value2'])
+      return res.send(['Card1', 'Card2'])
     } catch (error) {
       next(error)
     }
